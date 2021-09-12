@@ -10,13 +10,13 @@
 </template>
 
 <script>
-import { toRefs, reactive, shallowRef, readonly, shallowReadonly} from "vue";
+import { toRefs, reactive, ref} from "vue";
 
 export default {
   name: "Demo",
   setup() {
     // 数据
-    // let person = shallowReactive({   // 只考虑第一层数据的响应式
+    let sum = ref(0)
     let person = reactive({
       name: '张三',
       age: 20,
@@ -26,9 +26,6 @@ export default {
         }
       }
     })
-    let sum = shallowRef(0)
-    sum = readonly(sum)
-    person = shallowReadonly(person) // 只有对象的第一层变为readonly，salary还是可以改的
 
     // 返回一个对象
     return {
